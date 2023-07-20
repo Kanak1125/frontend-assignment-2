@@ -1,0 +1,72 @@
+.nav {
+  background-color: var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.logo-text-store {
+  color: var(--accent-color);
+}
+
+.search-form {
+  position: relative;
+  width: 50%;
+}
+.search-input {
+  width: 100% !important; /* not working correctly*/
+  border-radius: 50px !important;
+  margin: none !important;
+}
+
+.search-btn {
+  background-color: var(--accent-color);
+  color: var(--default-color);
+  border-radius: 50%;
+  right: 0;
+  height: 32px;
+  width: 32px;
+  margin-right: 2px;
+}
+
+.search-btn:hover,
+.search-btn:active,
+.search-btn:focus {
+  background-color: var(--accent-on-hover-color);
+  color: var(--default-color);
+}
+/* .search-btn > *{
+  font-size: 20px !important;
+} */
+
+.cart-link {
+  color: var(--default-color);
+}
+
+.cart-link > svg {
+  margin-top: -12px;
+}
+
+/* footer section css here */
+.footer {
+  display: none;
+  bottom: 0;
+  background-color: var(--default-color);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px 20px;
+}
+
+.footer-links {
+  color: var(--secondary-color) !important;
+}
+
+@media (max-width: 834px) {
+  .search-form {
+    width: 80%;
+  }
+
+  .cart-link {
+    display: none;
+  }
+
+  .footer {
+    display: flex;
+  }
+}

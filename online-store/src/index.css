@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --default-color: #ffffff;
+  --primary-color: hsl(41, 44%, 93%);
+  --secondary-color: hsl(206, 58%, 14%);
+  --accent-color: hsl(8, 67%, 51%);
+  --accent-on-hover-color: hsl(8, 67%, 47%);
+  /* --btn-color: #FFBA00; this might be useful */
+}
+
+body {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  font-family: 'Karla', sans-serif !important;
+}
