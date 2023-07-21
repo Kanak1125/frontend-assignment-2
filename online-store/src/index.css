@@ -16,7 +16,6 @@
 }
 
 body {
-  text-decoration: none;
   background-color: var(--primary-color);
   font-family: 'Karla', sans-serif !important;
 }

@@ -12,7 +12,7 @@
   width: 50%;
 }
 .search-input {
-  width: 100% !important; /* not working correctly*/
+  width: 100% !important; 
   border-radius: 50px !important;
   margin: none !important;
 }
@@ -22,8 +22,8 @@
   color: var(--default-color);
   border-radius: 50%;
   right: 0;
-  height: 32px;
-  width: 32px;
+  height: 36px;
+  width: 36px;
   margin-right: 2px;
 }
 
@@ -33,9 +33,6 @@
   background-color: var(--accent-on-hover-color);
   color: var(--default-color);
 }
-/* .search-btn > *{
-  font-size: 20px !important;
-} */
 
 .cart-link {
   color: var(--default-color);
@@ -68,5 +65,92 @@
 
   .footer {
     display: flex;
+  }
+}
+
+/* home page css here */
+.featured-products {
+  color: var(--secondary-color);
+}
+
+/* product page css here */
+.img-container img{
+  height: 350px !important;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.quantity-and-add-to-cart-container input {
+  width: 60px;
+  text-align: center;
+}
+
+.qty-btn,
+.qty-input {
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  outline: none;
+  border: 1px solid var(--secondary-color);
+}
+
+.qty-btn:hover,
+.qty-btn:focus {
+  border: 1px solid var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--default-color) !important;
+}
+
+.qty-btn:active {
+  border: 1px solid var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
+}
+
+.qty-input:focus {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.star-icon {
+  color: #ffe234;
+  margin-right: 2px;
+}
+
+.add-to-cart-btn {
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--default-color) !important;
+}
+
+.add-to-cart-btn:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 40px -10px, rgba(0, 0, 0, 0.3) 0px 7.5px 10px -5px !important;
+}
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus,
+.add-to-cart-btn:active {
+  background-color: var(--accent-color) !important;
+  border: 1px solid var(--accent-color) !important;
+}
+
+.add-to-cart-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 40px -10px, rgba(0, 0, 0, 0.3) 0px 9px 12px -4px !important;
+}
+
+@media (max-width: 834px) {
+  .price-info-container {
+    margin: 40px 0;
   }
 }

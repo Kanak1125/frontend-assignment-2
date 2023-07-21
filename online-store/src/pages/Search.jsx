@@ -24,7 +24,9 @@ const Search = (props) => {
             <div className="row">
                 <h2>Search Results </h2>
             </div>
-            <div className="row gx-3 gy-5">
+            {filteredData.length === 0 ?
+                <h4 className='my-4'>No such products...</h4> :
+                <div className="row my-4 gx-3 gy-5">
                     {searchTerm !== '' && filteredData.map(cardData => 
                         // <Link to="/productDetails" key={cardData.id}>
                         // <RouterProvider router={router}>
@@ -38,7 +40,8 @@ const Search = (props) => {
                         // </RouterProvider>
                         // </Link>
                     )}
-            </div>
+                </div>
+            }
         </div>
     </>
   )

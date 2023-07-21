@@ -23,7 +23,7 @@ function App() {
             axios.get(`https://fakestoreapi.com/products/`).then(res => setData(res.data));
             return data;
         },
-        staleTime: 1000 * 60 * 5    // the data will refetch only after 5 mins even if the page changes...
+        // staleTime: 1000 * 60 * 5    // the data will refetch only after 5 mins even if the page changes...
     })
 
   // console.log(data);
@@ -55,7 +55,7 @@ function App() {
             <Link to={'/'} className="navbar-brand text-white fs-3 fw-semibold">
             Online <span className='logo-text-store'>Store</span>
             </Link>
-            <form className="d-flex align-items-center search-form" role="search">
+            <form className="d-flex align-items-center search-form" role="search" onSubmit={(event) => event.preventDefault()}>
                 <input
                  className="form-control search-input"
                  type="search" 
@@ -82,7 +82,7 @@ function App() {
           data={data}
           searchTerm={searchTerm}
         />} />
-        <Route path="/product/" element={<Product />} />
+        <Route path="/product/:productID" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <footer className='w-100 justify-content-center align-items-center footer position-fixed'>

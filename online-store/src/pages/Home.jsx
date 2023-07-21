@@ -19,13 +19,12 @@ const Home = (props) => {
     <>
         {/* <MyCarousel /> */}
         <div className="container my-2 py-5">
-            <div className="row">
+            <div className="row featured-products">
                 <h2>Featured Products</h2>
             </div>
-            <div className="row gx-3 gy-5">
+            <div className="row my-4 gx-3 gy-5">
                     {data.map(cardData => 
-                        // <Link to="/productDetails" key={cardData.id}>
-                        // <RouterProvider router={router}>
+                        /* // <RouterProvider router={router}> */
                             <Card 
                                 key={cardData.id}
                                 id={cardData.id}
@@ -33,8 +32,7 @@ const Home = (props) => {
                                 title={cardData.title}
                                 price={cardData.price}
                             />
-                        // </RouterProvider>
-                        // </Link>
+                        /* // </RouterProvider> */
                     )}
             </div>
         </div>
