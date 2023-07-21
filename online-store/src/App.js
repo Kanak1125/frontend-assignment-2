@@ -1,15 +1,53 @@
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Product from './pages/Product';
 import {BsSearch, BsCart3, BsHouse, BsGrid1X2Fill} from 'react-icons/bs';
 import Cart from './pages/Cart';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+
 // import 'jquery';
 // import 'popper.js';
 
 function App() {
+  // console.log(data);
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+    const {isLoading, error} = useQuery({
+        queryKey: ["products"],
+        queryFn: () => {
+            axios.get(`https://fakestoreapi.com/products/`).then(res => setData(res.data));
+            return data;
+        },
+        staleTime: 1000 * 60 * 5    // the data will refetch only after 5 mins even if the page changes...
+    })
+
+  // console.log(data);
   
+  // const debounce = (func, delay) => {
+  //   let timer;
+  //   return function (...args) {
+  //     clearTimeout(timer);
+  //     timer = setTimeout(() => func(...args), delay);
+  //   };
+  // };
+
+  // const debouncedHandleSearch = useCallback(debounce(value => setSearchTerm(value), 500), []);
+
+  // function handleSearch(e) {
+  //   const value = e.target.value;
+  //   debouncedHandleSearch(value);
+  // }
+
+  function handleSearch(e) {
+    const value = e.target.value;
+    setSearchTerm(value);
+  }
+
   return (
     <BrowserRouter>
       <nav className="nav w-100">
@@ -21,19 +59,29 @@ function App() {
                 <input
                  className="form-control search-input"
                  type="search" 
-                //  value={searchItem}
+                 value={searchTerm}
                  placeholder="Search here..." 
                  aria-label="Search" 
-                //  onChange={(e) => handleSearch(e)}
+                 onChange={(e) => handleSearch(e)}
                 />
-                <button className="btn search-btn d-flex align-items-center justify-content-center position-absolute" type="submit"><BsSearch/></button>
+                <Link to={'/search'} className="btn search-btn d-flex align-items-center justify-content-center position-absolute">
+                  <BsSearch/>
+                </Link>
             </form>
             <Link to={'/cart'} className='fs-2 cart-link '><BsCart3 /></Link>
         </div>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Home
+          data={data}
+          isLoading={isLoading}
+          error={error}
+          setData={setData}
+        />} />
+        <Route path="/search" element={<Search 
+          data={data}
+          searchTerm={searchTerm}
+        />} />
         <Route path="/product/" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

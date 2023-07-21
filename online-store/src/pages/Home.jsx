@@ -1,43 +1,44 @@
 // import MyCarousel from '../components/MyCarousel'
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+// import { useState, createContext, useContext } from 'react';
 import Card from '../components/Card';
 
-const Home = () => {
-    const [data, setData] = useState([]);
+const Home = (props) => {
+    // const DataProvider = createContext();
+    const {data, isLoading, error} = props;
+    
+    if (isLoading) return (
+        <div className="d-flex align-items-center mx-auto my-5 container">
+            <h2>Loading...</h2>
+            <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+    )
 
-    const {isLoading, error} = useQuery({
-        queryKey: ["products"],
-        queryFn: () => {
-            fetch(`https://fakestoreapi.com/products/`).then(res => res.json())
-            .then(data => {
-                setData(data)
-            });
-            return data;
-        }
-    })
+    if (error) return <h2>An error has occurred: {error.message}</h2>
 
   return (
-    <main>
+    <>
         {/* <MyCarousel /> */}
-        <div className='container my-2 py-5'>
-        <div className="row gx-3 gy-5">
-                {data.map(cardData => 
-                    // <Link to="/productDetails" key={cardData.id}>
-                    // <RouterProvider router={router}>
-                        <Card 
-                            key={cardData.id}
-                            id={cardData.id}
-                            imageUrl={cardData.image}
-                            title={cardData.title}
-                            price={cardData.price}
-                        />
-                    // </RouterProvider>
-                    // </Link>
-                )}
+        <div className="container my-2 py-5">
+            <div className="row">
+                <h2>Featured Products</h2>
+            </div>
+            <div className="row gx-3 gy-5">
+                    {data.map(cardData => 
+                        // <Link to="/productDetails" key={cardData.id}>
+                        // <RouterProvider router={router}>
+                            <Card 
+                                key={cardData.id}
+                                id={cardData.id}
+                                imageUrl={cardData.image}
+                                title={cardData.title}
+                                price={cardData.price}
+                            />
+                        // </RouterProvider>
+                        // </Link>
+                    )}
             </div>
         </div>
-    </main>
+    </>
   )
 }
 
