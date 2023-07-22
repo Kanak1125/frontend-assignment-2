@@ -8,3 +8,5 @@
 
 - npm i @tanstack/react-query (used for fetching the API data)
 <!-- - npm i @tanstack/react-query-devtools -->
+
+### Its a react app so run 'npm start' to run the app in your local machine
