@@ -1,9 +1,13 @@
-// import MyCarousel from '../components/MyCarousel'
+import StoreCarousel from '../components/StoreCarousel'
 // import { useState, createContext, useContext } from 'react';
 import Card from '../components/Card';
+import { useContext } from 'react';
+import { CartContext } from '../App';
 
 const Home = (props) => {
     // const DataProvider = createContext();
+    const cartList = useContext(CartContext);
+    console.log(cartList);
     const {data, isLoading, error} = props;
     
     if (isLoading) return (
@@ -17,8 +21,8 @@ const Home = (props) => {
 
   return (
     <>
-        {/* <MyCarousel /> */}
-        <div className="container my-2 py-5">
+        <StoreCarousel />
+        <main className="container my-2 py-5">
             <div className="row featured-products">
                 <h2>Featured Products</h2>
             </div>
@@ -35,7 +39,7 @@ const Home = (props) => {
                         /* // </RouterProvider> */
                     )}
             </div>
-        </div>
+        </main>
     </>
   )
 }

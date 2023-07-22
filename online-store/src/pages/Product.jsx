@@ -43,51 +43,47 @@ const Product = () => {
     if (error) return <h2>An error has occurred: {error.message}</h2>
 
     return (
-    <>
-        <div className="container my-2 py-5">
+    <main className="container my-2 py-5">
+        <div className="row">
+            <h2>Product Detail </h2>
+        </div>
+        <div className="container my-5">
             <div className="row">
-                <h2>Product Detail </h2>
-            </div>
-            <div className="container my-5">
-                <div className="row">
-                    <div className="img-container col-md-5 ">
-                        <img src={data.image} alt="" className="img-fluid" />
+                <div className="img-container col-md-5 ">
+                    <img src={data.image} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-7 px-5 price-info-container">
+                    <h2 className='product-title fw-bold'>{data.title}</h2>
+                    <p className='product-price fs-5'>{`$ ${data.price}`}</p>
+                    <div className="ratings">
+                        <BsStarFill className='star-icon'/>
+                        <BsStarFill className='star-icon'/>
+                        <BsStarFill className='star-icon'/>
+                        <BsStarFill className='star-icon'/>
+                        <BsStarHalf className='star-icon'/>
                     </div>
-                    <div className="col-md-7 px-5 price-info-container">
-                        <h2 className='product-title fw-bold'>{data.title}</h2>
-                        <p className='product-price fs-5'>{`$ ${data.price}`}</p>
-                        <div className="ratings">
-                            <BsStarFill className='star-icon'/>
-                            <BsStarFill className='star-icon'/>
-                            <BsStarFill className='star-icon'/>
-                            <BsStarFill className='star-icon'/>
-                            <BsStarHalf className='star-icon'/>
-                        </div>
-                        <p className='my-3'>Availability: In stock</p>
-                        <p className="description my-4">{data.description}</p>
-                        <div className="quantity-and-add-to-cart-container mt-4">
-                            <label htmlFor="quantity" title='Quantity'>Qty:</label>
-
-                            <button className="btn btn-outline-dark mx-2 qty-btn" onClick={decrementQuantity}>-</button>
-                            <input 
-                                type="number" 
-                                name="" 
-                                id="quantity" 
-                                className='qty-input rounded'
-                                value={quantity} 
-                                min={1} 
-                                max={5}
-                                onChange={(e) => handleQuantity(e)}
-                            />
-                            <button className="btn btn-outline-dark mx-2 qty-btn" onClick={incrementQuantity}>+</button>
-
-                            <button className="btn add-to-cart-btn mx-4 rounded">Add to cart</button>
-                        </div>
+                    <p className='my-3'>Availability: In stock</p>
+                    <p className="description my-4">{data.description}</p>
+                    <div className="quantity-and-add-to-cart-container mt-4">
+                        <label htmlFor="quantity" title='Quantity'>Qty:</label>
+                        <button className="btn btn-outline-dark mx-2 qty-btn" onClick={decrementQuantity}>-</button>
+                        <input 
+                            type="number" 
+                            name="" 
+                            id="quantity" 
+                            className='qty-input rounded'
+                            value={quantity} 
+                            min={1} 
+                            max={5}
+                            onChange={(e) => handleQuantity(e)}
+                        />
+                        <button className="btn btn-outline-dark mx-2 qty-btn" onClick={incrementQuantity}>+</button>
+                        <button className="btn add-to-cart-btn mx-4 rounded">Add to cart</button>
                     </div>
                 </div>
             </div>
         </div>
-    </>
+    </main>
   )
 }
 

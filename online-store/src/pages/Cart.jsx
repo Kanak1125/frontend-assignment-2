@@ -2,7 +2,11 @@ import React from 'react'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <main className="container my-2 py-5">
+      <div className="row">
+            <h2>Your Shopping Cart </h2>
+        </div>
+    </main>
   )
 }
 

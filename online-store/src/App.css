@@ -84,6 +84,7 @@
 .quantity-and-add-to-cart-container input {
   width: 60px;
   text-align: center;
+  transition: all 200ms ease-in-out;
 }
 
 .qty-btn,
@@ -153,4 +154,13 @@ input[type="number"] {
   .price-info-container {
     margin: 40px 0;
   }
+}
+
+.carousel-item {
+  max-height: 400px;
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
 }
